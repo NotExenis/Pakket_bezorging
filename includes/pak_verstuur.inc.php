@@ -25,9 +25,9 @@ $stmt3->execute();
         <br>
         <h5>Hoeveel weegt uw pakketje</h5>
         <div>
-          <select name="KG">
+          <select name="prijs">
             <?php foreach ($stmt2 as $r2) { ?>
-              <option name="KG" value="<?= $r2['gewicht_prijs'] ?>">$<?= $r2['gewicht_prijs'] ?></option>
+              <option name="prijs" value="<?= $r2['gewicht_id'] ?>">$<?= $r2['gewicht_prijs'] ?></option>
             <?php } ?>
           </select>
         </div>
@@ -39,7 +39,7 @@ $stmt3->execute();
           <br>
           <input type="text" name="huisnummer" placeholder="Huisnummer" required>
         </div>
-        <div>
+        <div> 
           <br>
           <select name="stad">
             <?php foreach ($stmt as $r) { ?>
@@ -59,7 +59,6 @@ $stmt3->execute();
             <option value="10">Spoed +10%</option>
             <option value="30">Verzekerd en spoed +30%</option>
             <option value="12.5">Zakelijk spoed +12.5%</option>
-
           </select>
         </div>
         <br>
@@ -68,28 +67,28 @@ $stmt3->execute();
           <input type="text" name="omschrijving" placeholder="Omschrijving" required>
         </div>
         <br>
-        <button value="<?= $_SESSION['id'] ?>" class="btn btn-dark" type="submit">Volgende pagina</button>
+        <button class="btn btn-dark" type="submit">Volgende pagina</button>
 
 
 
       </div>
       <div class="col-2">
-      <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Gewicht</th>
-                    <th scope="col">Prijs</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($stmt3 as $r3) { ?>
-                    <tr>
-                      <th><?= $r3['gewicht_kilo'] ?>kg</th>
-                      <td>$<?= $r3['gewicht_prijs'] ?></td>
-                    </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Gewicht</th>
+              <th scope="col">Prijs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($stmt3 as $r3) { ?>
+              <tr>
+                <th><?= $r3['gewicht_kilo'] ?>kg</th>
+                <td>$<?= $r3['gewicht_prijs'] ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

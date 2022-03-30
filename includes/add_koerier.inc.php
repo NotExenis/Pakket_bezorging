@@ -4,6 +4,10 @@ $sql = "SELECT * FROM tbl_gemeentes";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
+$sql2 = "SELECT * FROM tbl_gemeentes";
+$stmt2 = $db->prepare($sql2);
+$stmt2->execute();
+
 $sql1 = "SELECT * FROM tbl_users WHERE user_role = 'koerier'";
 $stmt1 = $db->prepare($sql1);
 $stmt1->execute();
@@ -69,12 +73,14 @@ $stmt1->execute();
                                     </div>
                                     <br>
                                     <div class="form-group">
+                                      <label for="woonplaats">Woonplaats</label>
                                       <select name="woonplaats">
                                         <?php foreach($stmt as $r){ ?>
                                         <option name="woonplaats" value="<?= $r['id'] ?>"><?= $r['naam'] ?></option>
                                         <?php } ?>
                                       </select>
                                     </div>
+                                    <br>
               <button class="btn btn-outline-light btn-lg px-5" type="submit">Add koerier</button>
             </div>
           </div>

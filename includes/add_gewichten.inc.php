@@ -18,6 +18,7 @@ $stmt->execute();
                   <tr>
                     <th scope="col">Gewicht</th>
                     <th scope="col">Prijs</th>
+                    <th scope="col">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,12 @@ $stmt->execute();
                     <tr>
                       <th><?= $r['gewicht_kilo'] ?>kg</th>
                       <td>$<?= $r['gewicht_prijs'] ?></td>
+                      <td>
+                        <form action="php/del_gewicht.php" method="post">
+                          <input name="gewicht_id" type="hidden" value="<?= $r['gewicht_id'] ?>">
+                          <button class="btn btn-secondary" >Delete</button>
+                        </form>
+                      </td>
                     </tr>
                   <?php } ?>
                 </tbody>

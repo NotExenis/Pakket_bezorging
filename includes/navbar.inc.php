@@ -8,6 +8,7 @@ if(isset($_SESSION['role'])){
       array('add_koerier', 'Nieuwe koeriers'),
       array('add_gewichten', 'Voeg gewichten toe'),
       array('all_accounts', 'Alle accounts'),
+      array('koerier_regio', 'Regio koeriers'),
       array('logout.php', 'Logout')
     );
   }
@@ -15,6 +16,7 @@ if(isset($_SESSION['role'])){
     $navitems = array(
       array('allpakketjes', 'Alle pakketen'),
       array('geclaimdepakket', 'Door jou geclaimde pakketen'),
+      array('update_regio', 'Update regio'),
       array('logout.php', 'Logout')
 
     );

@@ -33,7 +33,7 @@ $stmt2->execute(array(
     ':straatnaam'=>$straatnaam,
     ':huisnummer'=>$huisnummer,
     ':woonplaats'=>$woonplaats,
-    ':role'=>$role
+    ':role'=>$role,
 ));
 header('location: ../index.php?page=home');
 
