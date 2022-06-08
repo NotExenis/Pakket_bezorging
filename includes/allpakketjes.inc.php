@@ -1,18 +1,22 @@
 <?php
 require 'private/conn.php';
+$regio = $_SESSION['regio_id'];
 $sql = "SELECT *, naam FROM tbl_pakket 
-        INNER JOIN tbl_gemeentes ON tbl_pakket.pakket_stad = tbl_gemeentes.id WHERE pakket_status = 'Aangemeld' ";
+        INNER JOIN tbl_gemeentes ON tbl_pakket.pakket_stad = tbl_gemeentes.id WHERE pakket_stad = :regio AND pakket_status = 'Aangemeld' ";
 $stmt = $db->prepare($sql);
+$stmt->bindParam(':regio',$regio);
 $stmt->execute();
 
 $sql2 = "SELECT *, naam FROM tbl_pakket 
-          INNER JOIN tbl_gemeentes ON tbl_pakket.pakket_stad = tbl_gemeentes.id WHERE pakket_status = 'Geclaimed'";
+          INNER JOIN tbl_gemeentes ON tbl_pakket.pakket_stad = tbl_gemeentes.id WHERE pakket_stad = :regio AND pakket_status = 'Geclaimed'";
 $stmt2 = $db->prepare($sql2);
+$stmt2->bindParam(':regio',$regio);
 $stmt2->execute();
 
 $sql3 = "SELECT *, naam FROM tbl_pakket 
-        INNER JOIN tbl_gemeentes ON tbl_pakket.pakket_stad = tbl_gemeentes.id WHERE pakket_status = 'Afgeleverd'";
+        INNER JOIN tbl_gemeentes ON tbl_pakket.pakket_stad = tbl_gemeentes.id WHERE pakket_stad = :regio AND pakket_status = 'Afgeleverd'";
 $stmt3 = $db->prepare($sql3);
+$stmt3->bindParam(':regio',$regio);
 $stmt3->execute();
 
 
@@ -45,7 +49,7 @@ $stmt3->execute();
               <td><?= $r['naam'] ?></td>
               <td><?= $r['pakket_status'] ?></td>
               <td>
-                <form action="php/pak_claim_pakket.php" method="post">
+                <form action="php/pak_claim_pakket2.php" method="post">
                   <input type="hidden" name="pak_id" value="<?= $r['pakket_id'] ?>">
                   <button class="btn btn-dark">Bezorg</button>
                 </form>
@@ -85,7 +89,7 @@ $stmt3->execute();
                   <td><?= $r2['naam'] ?></td>
                   <td><?= $r2['pakket_status'] ?></td>
                   <td>
-                    <form action="php/pak_afronden.php" method="post">
+                    <form action="php/pak_afronden2.php" method="post">
                       <input type="hidden" name="pak_id" value="<?= $r2['pakket_id'] ?>">
                       <button class="btn btn-danger">Rond af</button>
                     </form>

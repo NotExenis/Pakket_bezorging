@@ -1,6 +1,6 @@
 <?php 
 require 'private/conn.php';
-$sql = "SELECT * FROM tbl_users WHERE user_role = 'koerier' ";
+$sql = "SELECT * FROM tbl_users WHERE user_role <> 'user' ";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 

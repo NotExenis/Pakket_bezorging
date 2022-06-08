@@ -10,7 +10,7 @@ $stmt->execute();
     <div class="col-sm">
 
     </div>
-    <form action="php/update_admin_regio.php" method="post">
+    <form action="php/update_regio.php" method="post">
     <div class="col-sm">
         <br>
         <select name="gemeentes">

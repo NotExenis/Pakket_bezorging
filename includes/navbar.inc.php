@@ -9,6 +9,8 @@ if(isset($_SESSION['role'])){
       array('add_gewichten', 'Voeg gewichten toe'),
       array('all_accounts', 'Alle accounts'),
       array('koerier_regio', 'Regio koeriers'),
+      array('overzicht', 'Overzicht omzet'),
+      array('user_verstuurd', 'Mijn verstuurde pakketen'),
       array('logout.php', 'Logout')
     );
   }

@@ -11,5 +11,5 @@ $stmt->execute(array(
     ':regio'=>$regio,
     ':id'=>$id,
 ));
-// header('location: ../index.php?page=home');
+header('location: ../index.php?page=home');
 ?>
